@@ -1,0 +1,33 @@
+/* Table of Contents
+––––––––––––––––––––––––––––––––––––––––––––––––––
+- Oswald
+- Garamond
+*/
+
+/* Oswald
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@font-face {
+  font-family: 'Oswald';
+  src: url('../font/Oswald/Oswald-Regular.ttf') format('truetype'); /* Safari, Android, iOS */
+  font-weight: 400; /* normal */
+}
+
+@font-face {
+  font-family: 'Oswald';
+  src: url('../font/Oswald/Oswald-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+}
+
+/* EB Garamond
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@font-face {
+  font-family: 'Garamond';
+  src: url('../font/Garamond/EBGaramond-Regular.ttf') format('truetype');
+  font-weight: 400; /* normal */
+}
+
+@font-face {
+  font-family: 'Garamond';
+  src: url('../font/Garamond/EBGaramond-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+}

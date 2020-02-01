@@ -1,0 +1,445 @@
+/* Table of Contents
+––––––––––––––––––––––––––––––––––––––––––––––––––
+- External Resources
+- Custom Properties
+- Base
+  - General
+  - Typography
+- Module
+  + Button
+  + Lightbox
+  + Social
+- Layout
+  + Header
+  + Footer
+  + Card
+*/
+
+/* External Resources
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@import url('https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css');
+@import url('fonts.css');
+
+/* Custom Properties
+-------------------------------------------------- */
+:root {
+  /* color */
+  --color-light: #FFF;
+  --color-dark: #111;
+  --color-primary: #333;
+  --color-primary-light: #666;
+  --color-primary-dark: #111;
+  --color-font-body: #555;
+
+  /* typography */
+  --font-family: 'Garamond', serif;
+  --font-family-accent: 'Oswald', sans-serif;
+
+  /* size */
+  --global-max-width: 92rem;
+
+  --size-xxxs: 0.4rem;
+  --size-xxs: 0.8rem;
+  --size-xs: 1.2rem;
+  --size-s: 1.4rem;
+  --size-m: 1.6rem;
+  --size-l: 2.0rem;
+  --size-xl: 2.4rem;
+  --size-xxl: 3.0rem;
+  --size-xxxl: 3.6rem;
+}
+
+@media (min-width: 550px) {
+  :root {
+    --size-xxxs: 1.2rem;
+    --size-xxs: 1.4rem;
+    --size-xs: 1.6rem;
+    --size-s: 2.0rem;
+    --size-m: 2.4rem;
+    --size-l: 3.0rem;
+    --size-xl: 3.6rem;
+    --size-xxl: 4.8rem;
+    --size-xxxl: 6.0rem;
+  }
+}
+
+@media (min-width: 750px) {
+  :root {
+    --size-xxxs: 1.4rem;
+    --size-xxs: 1.6rem;
+    --size-xs: 2.0rem;
+    --size-s: 2.4rem;
+    --size-m: 3.0rem;
+    --size-l: 3.6rem;
+    --size-xl: 4.8rem;
+    --size-xxl: 6.0rem;
+    --size-xxxl: 7.2rem;
+  }
+}
+
+/* Base > General
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+html {
+  box-sizing: border-box;
+}
+*,
+:after,
+:before {
+  box-sizing: inherit;
+}
+
+img,
+svg {
+  height: auto;
+  max-width: 100%;
+}
+
+/* Base > Typography
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* html is set to 62.5% so that all the REM measurements are based on 10px sizing. */
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--size-m);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+@media (min-width: 550px) {
+  body {
+    line-height: 1.4;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-primary-dark);
+  font-family: var(--font-family-accent);
+  font-weight: 600;
+  margin-top: 0;
+}
+
+h1 { font-size: var(--size-xxl); line-height: 1; }
+h2 { font-size: var(--size-xl); line-height: 1; }
+h3 { font-size: var(--size-l); line-height: 1.2; }
+h4 { font-size: var(--size-m); line-height: 1.2; }
+h5 { font-size: var(--size-s); line-height: 1.3; }
+h6 { font-size: var(--size-xs); line-height: 1.3; }
+
+a,
+a:visited {
+  color: var(--color-primary-dark);
+  cursor: pointer;
+  text-decoration: underline dotted;
+}
+
+a:hover {
+  text-decoration: underline solid;
+}
+
+a:active,
+a:focus {
+  color: var(--color-primary-dark);
+  outline: 0;
+}
+
+::selection {
+  background-color: var(--color-primary-dark);
+  color: var(--color-light);
+}
+
+/* Module > Button
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.button,
+.button:visited {
+  background-color: var(--color-primary-dark);
+  border: 5px solid var(--color-primary-dark);
+  border-radius: 3px;
+  box-shadow: 0 1rem 0.5rem -0.5rem rgba(0,0,0,0.4);
+  color: var(--color-light);
+  display: inline-block;
+  font-family: var(--font-family-accent);
+  font-size: var(--size-s);
+  font-weight: 600;
+  letter-spacing: 0.075rem;
+  padding: var(--size-xxs) var(--size-xs);
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color ease-out 0.25s, color ease-out 0.25s;
+}
+
+.button:hover {
+  background-color: var(--color-light);
+  color: var(--color-primary-dark);
+  text-decoration: none;
+}
+
+.button:active,
+.button:focus {
+  background-color: var(--color-primary-dark);
+  color: var(--color-light);
+  transition: none;
+}
+
+.button.small {
+  border: 4px solid var(--color-primary-dark);
+  font-size: var(--size-xs);
+  padding: var(--size-xxxs) var(--size-xxs);
+}
+
+.button.large {
+  border: 6px solid var(--color-primary-dark);
+  font-size: var(--size-m);
+  padding: var(--size-s) var(--size-m);
+}
+
+/* Module > Lightbox
+-------------------------------------------------- */
+.lightbox {
+  display: none;
+}
+
+/* Opened lightbox */
+.lightbox:target {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+/* Lightbox content */
+.lightbox figcaption {
+  background-color: var(--color-light);
+  border-radius: 3px;
+  box-shadow: 0 15px 10px -5px rgba(0,0,0,0.75);
+  font-size: var(--size-l);
+  padding: var(--size-l);
+  position: relative;
+  width: 100%;
+  z-index: 98;
+}
+
+/* Close button */
+.lightbox .close {
+  display: block;
+  position: relative;
+}
+
+.lightbox .close::after {
+  align-items: center;
+  background-color: black;
+  border-radius: 50%;
+  color: var(--color-light);
+  content: "✖";
+  cursor: pointer;
+  display: flex;
+  height: var(--size-xl);
+  justify-content: center;
+  position: absolute;
+  right: -1rem;
+  top: -1rem;
+  width: var(--size-xl);
+  z-index: 100;
+}
+
+/* Lightbox overlay */
+.lightbox .close::before {
+  background-color: rgba(0,0,0,.7);
+  content: "";
+  cursor: default;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 96;
+}
+
+/* Module > Social
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.social {
+  align-items: baseline;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+
+.social a {
+  align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.social svg {
+  border: 5px solid transparent;
+  border-radius: 50%;
+  height: 60px;
+  transition: background-color ease-out 0.5s;
+  width: 60px;
+}
+
+.social svg path {
+  fill: var(--color-primary-dark);
+  transition: fill ease-out 0.5s;
+}
+
+.social a:hover svg {
+  background-color: var(--color-primary-dark);
+  border: 5px solid var(--color-primary-dark);
+  border-radius: 50%;
+}
+
+.social a:hover svg path {
+  fill: var(--color-light);
+  transition: initial;
+}
+
+.social a:active svg {
+  background-color: var(--color-light);
+  border: 0;
+}
+
+.social a:active svg path {
+  fill: var(--color-primary-dark);
+}
+
+.social a::after {
+  color: var(--color-font-body);
+  font-size: var(--size-s);
+}
+
+.behance::after { content: 'Behance' }
+.github::after { content: 'GitHub' }
+
+@media (min-width: 550px) {
+  .social svg {
+    height: 80px;
+    width: 80px;
+  }
+}
+
+/* Layout > Header
+-------------------------------------------------- */
+.title,
+.subtitle {
+  margin-bottom: var(--size-xs);
+}
+
+.subtitle {
+  align-items: baseline;
+  display: flex;
+  flex-flow: row nowrap;
+  font-family: var(--font-family-body);
+  font-size: var(--size-m);
+  font-weight: 400;
+}
+
+.subtitle span {
+  color: var(--color-font-body);
+  flex: 0 1 0;
+  line-height: 1;
+}
+
+.subtitle .connector {
+  align-self: center;
+  flex: 0 0 var(--size-xl);
+  text-align: center;
+}
+
+.statement {
+  color: var(--color-font-body);
+}
+
+@media (min-width: 550px) {
+  .subtitle span {
+    flex: 0 0 auto;
+  }
+}
+
+/* Layout > Footer
+-------------------------------------------------- */
+.footer {
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.footer > * {
+  flex: 0 1 100%;
+}
+
+@media (min-width: 550px) {
+  .footer > * {
+    flex: 0 1 50%;
+  }
+}
+
+/* Layout > Card
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.content {
+  align-content: center;
+  display: grid;
+  grid-template-areas:
+  "header"
+  "footer";
+  justify-content: center;
+  min-height: calc(100vh - (var(--size-m) * 2));
+}
+
+.content > header,
+.content > footer {
+  max-width: var(--global-max-width);
+}
+
+.content > header {
+  grid-area: header;
+}
+
+.content > footer {
+  grid-area: footer;
+}
+
+/* Absolute positioned contact button */
+.content {
+  padding-bottom: calc(var(--size-m) * 5);
+  position: relative;
+}
+
+.button.contact {
+  bottom: var(--size-s);
+  position: fixed;
+  left: var(--size-s);
+  right: var(--size-s);
+  z-index: 90;
+}
+
+@media (min-width: 550px) {
+  .content {
+    padding: var(--size-m);
+  }
+
+  .button.contact {
+    flex: 0 1 auto;
+    position: static;
+  }
+}
+
+.card {
+  background-color: var(--color-light);
+  min-height: calc(100vh - (var(--size-m) * 2));
+  padding: var(--size-m);
+}
+
+.frame {
+  border: 5px dotted var(--color-primary-dark);
+  padding: var(--size-m);
+}
